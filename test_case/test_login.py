@@ -48,44 +48,4 @@ class TestLogin(unittest.TestCase):
                              json=test_info['data'],
                              headers=eval(self.header))
          print(res)'''
-@ddt
-class TestLogin(unittest.TestCase):
-    # 读取配置文件
-    file_name = config.read('excel', 'file_name')
-    file_path = os.path.join(p_path.DATA_PATH, file_name)
-    # Excel 表格名称
-    sheet_name = config.read('excel', 'login_sheet')
-    # url 地址
-    url = config.read('http', 'base_url')
-    # 读取 headers 信息
-    headers = config.read('http', 'headers')
-
-    excel_sheet = ExcelHandler(file_path,sheet_name)
-    test_data = excel_sheet.read()
-
-    @classmethod
-    def setUpClass(cls):
-        cls.req = RequestsHandler()
-
-    @classmethod
-    def tearDownClass(cls):
-        pass
-
-
-    def setUp(self):
-        pass
-
-    def tearDown(self):
-        pass
-
-    @data(*test_data)
-    def test_login(self, test_info):
-        # 调用 requests 模块访问接口
-        # test_info['data'] = replace_label(test_info['data'])
-
-        res = self.req.json(test_info["method"],
-                            self.url + test_info["url"],
-                            json=eval(test_info["data"]),
-                            headers=eval(self.headers))
-        print(res)
-        self.assertEqual(test_info["expected"],eval(res["code"]))
+#这里被删除了
