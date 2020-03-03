@@ -23,29 +23,4 @@ class TestLogin(unittest.TestCase):
 
      #读取headers
      header = config.read("http","headers")
-     #获取Excel中的数据
-     test_data =ExcelHandler2(file_path).read(sheet_name)
-
-     @classmethod
-     def setUpClass(cls) -> None:
-         cls.req = RequestsHandler()
-
-     @classmethod
-     def tearDownClass(cls) -> None:
-         pass
-
-     def setUp(self):
-         pass
-
-     def tearDown(self):
-         pass
-
-
-     @data(*test_data)
-     def test_login(self,test_info):
-         res = self.req.json(test_info['method'],
-                             self.url,
-                             json=test_info['data'],
-                             headers=eval(self.header))
-         print(res)'''
-#这里被删除了
+     #获取
